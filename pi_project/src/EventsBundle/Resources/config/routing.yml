@@ -1,0 +1,11 @@
+events_homepage:
+    path:     /selim
+    defaults: { _controller: EventsBundle:Default:index }
+back_homepage:
+    path:     /back
+    defaults: { _controller: EventsBundle:Default:backIndex }
+Display_event:
+    path:     /events
+    defaults: { _controller: EventsBundle:Default:Display }
+
+
