@@ -1,11 +1,48 @@
 events_homepage:
-    path:     /selim
+    path:     /
     defaults: { _controller: EventsBundle:Default:index }
 back_homepage:
     path:     /back
     defaults: { _controller: EventsBundle:Default:backIndex }
 Display_event:
     path:     /events
-    defaults: { _controller: EventsBundle:Default:Display }
+    defaults: { _controller: EventsBundle:Events:display }
+
+supprimer_event:
+    path:     /supprimer_event/{id}
+    defaults: { _controller: EventsBundle:Events:delete }
+add_event:
+    path:     /add_event
+    defaults: { _controller: EventsBundle:Events:add }
+modify_event:
+    path:     /modify_event/{id}
+    defaults: { _controller: EventsBundle:Events:modify }
+signin_page:
+        path:     /signin
+        defaults: { _controller: EventsBundle:Events:signin }
+Display_event_front:
+    path:     /def
+    defaults: { _controller: EventsBundle:Events:Events }
+ReserverEvent:
+    path:     /reserver/{id}
+    defaults: { _controller: EventsBundle:Events:ReserverEvent }
+Mesreservation:
+    path:     /MesReservations
+    defaults: { _controller: EventsBundle:Events:MesReservations }
+toutlesreservation:
+    path:     /Reservations
+    defaults: { _controller: EventsBundle:Events:DisplayReservations }
+Annuler_reservation:
+    path:     /annulerreservation/{id}
+    defaults: { _controller: EventsBundle:Events:DeleteReservations }
+confirmer_reservation:
+    path:     /confirmerreservation/{id}
+    defaults: { _controller: EventsBundle:Events:Confirmer }
+rejeter_reservation:
+    path:     /rejeterreservation/{id}
+    defaults: { _controller: EventsBundle:Events:rejeter }
+
+
+
 
 
