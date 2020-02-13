@@ -1,0 +1,45 @@
+casting_homepage:
+    path:     /
+    defaults: { _controller: CastingBundle:Default:index }
+
+
+afficher_casting:
+    path:     /afficher_casting
+    defaults: { _controller: CastingBundle:Casting:AfficheCasting }
+
+afficher_casting_front:
+    path:     /afficher_casting_front
+    defaults: { _controller: CastingBundle:Casting:AfficheCastingFront }
+afficher_participation_front:
+    path:     /afficher_participation_front
+    defaults: { _controller: CastingBundle:Casting:MesParticipations }
+participer:
+    path:     /participer/{id}
+    defaults: { _controller: CastingBundle:Casting:Participer }
+annuler_participation:
+    path:     /annuler_participation/{id}
+    defaults: { _controller: CastingBundle:Casting:DeleteParticipations }
+
+
+ajouter_casting:
+    path:     /ajouter_casting
+    defaults: { _controller: CastingBundle:Casting:Add }
+
+
+supprimer_casting:
+    path:     /supprimer_casting/{id}
+    defaults: { _controller: CastingBundle:Casting:SupprimerCasting }
+
+modifier_casting:
+    path:     /modifier_casting/{id}
+    defaults: { _controller: CastingBundle:Casting:modifierCasting }
+signin_page:
+    path : /signin
+    defaults: { _controller: CastingBundle:Default:signin }
+signup_page:
+    path : /signup
+    defaults: { _controller: CastingBundle:Default:signup }
+
+
+
+
