@@ -1,0 +1,227 @@
+
+{% extends '@Events/default/index.html.twig' %}
+
+
+{% block body %}
+    {% for e in events %}
+
+
+
+
+        <section class="categories_area clearfix" id="about">
+            <div class="container">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
+
+                        <div class="catagory-title">
+                            <a href="#">
+                                <h5>Events :
+                                    {% for message in app.flashes('info') %}
+                                        {{ message }}
+                                    {% endfor %}
+
+
+
+
+
+
+
+                                </h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+<div class="row">
+
+    <!-- Single Post -->
+    <div class="col-12">
+        <div class="single-post wow fadeInUp" data-wow-delay=".2s">
+
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <div class="post-author-date-area d-flex">
+                    </div>
+                    <!-- Post Comment & Share Area -->
+                    <div class="post-comment-share-area d-flex">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Post -->
+    <div class="col-12 col-md-6">
+        <div class="single-post wow fadeInUp" data-wow-delay=".4s">
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <!-- Post Comment & Share Area -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Post -->
+    <div class="col-12 col-md-6">
+        <div class="single-post wow fadeInUp" data-wow-delay=".6s">
+            <!-- Post Thumb -->
+
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <!-- Post Comment & Share Area -->
+                    <div class="post-comment-share-area d-flex">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Post -->
+    <div class="col-12 col-md-6">
+        <div class="single-post wow fadeInUp" data-wow-delay=".8s">
+            <!-- Post Thumb -->
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <div class="post-author-date-area d-flex">
+                    </div>
+                    <!-- Post Comment & Share Area -->
+                    <div class="post-comment-share-area d-flex">
+                        <!-- Post Favourite -->
+                        <!-- Post Comments -->
+                        <!-- Post Share -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Post -->
+    <div class="col-12 col-md-6">
+        <div class="single-post wow fadeInUp" data-wow-delay="1s">
+            <!-- Post Thumb -->
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <div class="post-author-date-area d-flex">
+                    </div>
+                    <!-- Post Comment & Share Area -->
+                    <div class="post-comment-share-area d-flex">
+                        <!-- Post Favourite -->
+                        <!-- Post Comments -->
+                        <!-- Post Share -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ******* List Blog Area Start ******* -->
+
+    <!-- Single Post -->
+    <div class="col-12">
+        <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
+            <!-- Post Thumb -->
+            <div class="post-thumb">
+                <img src="http:\\localhost\pi_project\web\Uploads\Events\photo\{{ e.image }}" alt="">
+            </div>
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-meta d-flex">
+                    <div class="post-author-date-area d-flex">
+                      <!-- Post Date -->
+                        <div class="post-date">
+                            <a href="#">{{ e.dateEvent |date("m/d/Y") }}</a>
+                        </div>
+                    </div>
+                    <!-- Post Comment & Share Area -->
+                    <div class="post-comment-share-area d-flex">
+                        <!-- Post Favourite -->
+                        <div class="post-favourite">
+                            <a href="#"><i class="{#fa fa-heart-o#}" aria-hidden="true"></i> </a>
+
+                        </div>
+
+                        <!-- Post Share -->
+                        <div class="post-share">
+                            <section class="ow-container">
+                                <div class="ow-weather">
+                                    <header>
+
+<br>                 </header>
+                                    <div class="tables">
+                                        <table class="left">
+                                            <tbody>
+                                            <tr>
+                                                <td>Emplacement:</td>
+                                                <td><span class="bold">{{ weather.cityName() }}</span>, {{ weather.country() }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Description:</td>
+                                                <td>{{ weather.description() }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Temperature:</td>
+                                                <td><span class="blue-highlighted">{{ weather.temp|kelvinToCelsius }} &deg;C</span></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <table class="right">
+                                            <tbody>
+                                            <tr>
+                                                <td>Pression:</td>
+                                                <td><span class="green-highlighted">{{ weather.pressure() }} hPa</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>vent:</td>
+                                                <td>{{ weather.windSpeed() }} m/s</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Humidité:</td>
+                                                <td><span class="orange-highlighted">{{ weather.humidity() }} %</span></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="clear-both"></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    </div>
+                </div>
+                <a href="#">
+                    <h4 class="post-headline">{{ e.nameEvent }}</h4>
+                </a>
+                <p>{{ e.descriptionEvent }} <br>Prix ticket : {{ e.prixTicket }}<br> number of places : {{ e.nbrPlacesEvent }}</p>
+                {% if app.user %}
+                <a href="{{ path('ReserverEvent', { 'id': e.id }) }}" class="read-more">Réserver</a>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Single Post -->
+
+
+</div>
+{% endfor %}
+{% endblock %}

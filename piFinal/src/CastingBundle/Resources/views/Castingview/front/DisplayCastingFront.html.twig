@@ -1,0 +1,173 @@
+
+{% extends '@Events/default/index.html.twig' %}
+
+
+{% block body %}
+
+    {% for d in data %}
+        <div class="row">
+
+            <!-- Single Post -->
+            <div class="col-12">
+                <div class="single-post wow fadeInUp" data-wow-delay=".2s">
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <div class="post-author-date-area d-flex">
+                            </div>
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Post -->
+            <div class="col-12 col-md-6">
+                <div class="single-post wow fadeInUp" data-wow-delay=".4s">
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <!-- Post Comment & Share Area -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Post -->
+            <div class="col-12 col-md-6">
+                <div class="single-post wow fadeInUp" data-wow-delay=".6s">
+                    <!-- Post Thumb -->
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Post -->
+            <div class="col-12 col-md-6">
+                <div class="single-post wow fadeInUp" data-wow-delay=".8s">
+                    <!-- Post Thumb -->
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <div class="post-author-date-area d-flex">
+                            </div>
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                                <!-- Post Favourite -->
+                                <!-- Post Comments -->
+                                <!-- Post Share -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Post -->
+            <div class="col-12 col-md-6">
+                <div class="single-post wow fadeInUp" data-wow-delay="1s">
+                    <!-- Post Thumb -->
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <div class="post-author-date-area d-flex">
+                            </div>
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                                <!-- Post Favourite -->
+                                <!-- Post Comments -->
+                                <!-- Post Share -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ******* List Blog Area Start ******* -->
+
+            <!-- Single Post -->
+            <div class="col-12">
+                <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
+                    <!-- Post Thumb -->
+                    <div class="post-thumb">
+                        <img src="../Uploads/casting/photo/{{ d.photo }}" alt="">
+                    </div>
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <div class="post-author-date-area d-flex">
+                                <!-- Post Date -->
+                                <div class="post-date">
+                                    <a href="#">{{ d.dateCasting |date("m/d/Y") }}</a>
+                                </div>
+                            </div>
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                                <!-- Post Favourite -->
+                                <div class="post-favourite">
+
+
+                                </div>
+                                <!-- Post Comments -->
+                                <div class="post-comments">
+
+                                </div>
+                                <!-- Post Share -->
+                                <div class="post-share">
+
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4 class="post-headline">{{ d.nomCasting }}</h4>
+                        </a>
+                        <p>Type : {{ d.typeCasting }}<br> number of places : {{ d.numberPlaceCasting }}</p>
+                        {% if app.user %}
+                            {% set var = 'false' %}
+                            {% set resultat = 'en cours' %}
+                            {% set tableau = participation %}
+
+                            {% for p in tableau %}
+{#                                {{ app.user.id }} = {{  p.id }}  ; {{ d.id }} = {{ p.cid }}#}
+                                {% if app.user.id==p.id and d.id==p.cid %}
+                                    {% set var = 'true' %}
+                                    {% set participation = p.pid %}
+                                    {% set resultat = p.resultat %}
+                                {% endif %}
+                            {% endfor %}
+
+                        {% if var == 'true' %}
+                            {% if resultat == 'en cours' %}
+                        <a href="{{ path('annuler_participation', { 'id': participation }) }}" class="read-more">annuler participation</a>
+                            {% else %}
+                             Resultat :   {{ resultat }}
+                            {% endif %}
+                        {% else %}
+                            <a href="{{ path('participer', { 'id': d.id }) }}" class="read-more">Participer</a>
+                        {% endif %}
+
+
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Single Post -->
+
+
+        </div>
+    {% endfor %}
+{% endblock %}
